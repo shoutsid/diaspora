@@ -26,13 +26,6 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
-  # **The application's 6.1 suite builds association-less records on purpose.** The
-  # validations specs create a Contact without a person, a signature without a relayable,
-  # and an AccountMigration whose old person is unknown; the application's own CI is green
-  # on 6.1 with these specs, so its `belongs_to` default is off. Naming that here keeps the
-  # baseline reproducing the application rather than guessing at the rung.
-  config.active_record.belongs_to_required_by_default = false
-
   # **The asset build is a step of this environment, and its error-page task renders
   # `error_pages.css` through the custom manifest in `lib/tasks/assets.rake`.** Sprockets'
   # precompiled-asset check exists so an undeclared asset cannot ship in production; under
