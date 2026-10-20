@@ -23,7 +23,11 @@ class StatusMessage < Post
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   has_one :location
-  has_one :poll, autosave: true, dependent: :destroy
+  # **The foreign key is named here, because the owner is an STI subclass.** The table is
+  # `polls.status_message_id` and `Poll` declares `belongs_to :status_message`; Rails 6.1
+  # resolved the `has_one` through that inverse, and 7.0 derives it from the base `Post`
+  # (`polls.post_id`), a column that does not exist.
+  has_one :poll, autosave: true, dependent: :destroy, foreign_key: :status_message_id
   has_many :poll_participations, through: :poll
 
   attr_accessor :oembed_url
