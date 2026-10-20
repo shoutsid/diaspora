@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "~> 7.0.0"
+gem "rails", "7.1.0"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -38,7 +38,8 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "~> 4.0"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "4.1.0"
+gem "devise-two-factor", "~> 6.3.1"
+gem "attr_encrypted", "~> 4.2"
 gem "rqrcode", "3.2.0"
 
 # Captcha
@@ -277,3 +278,4 @@ group :development, :test do
 end
 gem "rake", ">= 12.2"
 gem "logger", "~> 1.4"
+gem "connection_pool", "~> 2.5"

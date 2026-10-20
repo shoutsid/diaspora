@@ -23,6 +23,9 @@ class Comment < ApplicationRecord
   belongs_to :commentable, :touch => true, :polymorphic => true
   alias_attribute :post, :commentable
   alias_attribute :parent, :commentable
+  def parent
+    commentable
+  end
 
   delegate :name, to: :author, prefix: true
   delegate :comment_email_subject, to: :parent

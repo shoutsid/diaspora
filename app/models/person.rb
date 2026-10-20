@@ -247,7 +247,7 @@ class Person < ApplicationRecord
 
   def self.search(search_str, user, only_contacts: false, mutual: false)
     query = find_by_substring(search_str)
-    return query if query.is_a?(ActiveRecord::NullRelation)
+    return query if query.null_relation?
 
     query = if only_contacts
               query.contacts_of(user)

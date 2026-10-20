@@ -8,6 +8,11 @@ require "active_support/core_ext/integer/time"
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  # devise-two-factor 6 encrypts otp_secret with Active Record Encryption.
+  # These are deterministic test keys; production supplies its own credentials.
+  config.active_record.encryption.primary_key = "0123456789abcdef0123456789abcdef"
+  config.active_record.encryption.deterministic_key = "fedcba9876543210fedcba9876543210"
+  config.active_record.encryption.key_derivation_salt = "00112233445566778899aabbccddeeff"
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = true

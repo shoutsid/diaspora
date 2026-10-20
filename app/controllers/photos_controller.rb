@@ -126,7 +126,7 @@ class PhotosController < ApplicationController
       # get file name
       file_name = params[:qqfile]
       # get file content type
-      att_content_type = request.media_type.to_s == "" ? "application/octet-stream" : request.content_type.to_s
+      att_content_type = request.media_type.to_s == "" ? "application/octet-stream" : request.media_type.to_s
       # create temporal file
       file = Tempfile.new(file_name, encoding: "BINARY")
       # put data into this file from raw post request

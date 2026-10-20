@@ -15,6 +15,9 @@ class Like < ApplicationRecord
   has_one :signature, class_name: "LikeSignature", dependent: :delete
 
   alias_attribute :parent, :target
+  def parent
+    target
+  end
 
   class Generator < Diaspora::Federated::Generator
     def self.federated_class
