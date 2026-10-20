@@ -26,6 +26,14 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
+  # **The asset build is a step of this environment, and its error-page task renders
+  # `error_pages.css` through the custom manifest in `lib/tasks/assets.rake`.** Sprockets'
+  # precompiled-asset check exists so an undeclared asset cannot ship in production; under
+  # the test build the assets are a build artifact of the same run, and the check made
+  # `assets:generate_error_pages` abort, which left `public/assets` incomplete and every
+  # view spec that names `main.js` failing for a reason unrelated to the suite.
+  config.assets.check_precompiled_asset = false
+
   # Precompile poltergeist_disable_transition.css for tests
   config.assets.precompile += %w[poltergeist_disable_transition.css]
 
