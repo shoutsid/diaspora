@@ -23,13 +23,17 @@ class StatusMessage < Post
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
   # The same STI resolution as the poll: `locations.status_message_id` is the column, and
-  # 7.0 derives `locations.post_id` from the base `Post` unless the key is named.
-  has_one :location, foreign_key: :status_message_id
+  # 7.0 derives `locations.post_id` from the base `Post` unless the key is named. The
+  # inverse is named too: with an explicit foreign key Rails no longer infers it, and
+  # `build_location` would leave the child without its owner.
+  has_one :location, foreign_key: :status_message_id, inverse_of: :status_message
   # **The foreign key is named here, because the owner is an STI subclass.** The table is
   # `polls.status_message_id` and `Poll` declares `belongs_to :status_message`; Rails 6.1
   # resolved the `has_one` through that inverse, and 7.0 derives it from the base `Post`
-  # (`polls.post_id`), a column that does not exist.
-  has_one :poll, autosave: true, dependent: :destroy, foreign_key: :status_message_id
+  # (`polls.post_id`), a column that does not exist. Naming the key stops that inference,
+  # so the inverse is named as well — otherwise a built poll has no owner and fails the
+  # presence validation before the status message's id exists.
+  has_one :poll, autosave: true, dependent: :destroy, foreign_key: :status_message_id, inverse_of: :status_message
   has_many :poll_participations, through: :poll
 
   attr_accessor :oembed_url
