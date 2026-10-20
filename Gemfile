@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.2.0"
+gem "rails", "8.0.0"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -101,13 +101,13 @@ gem "babel-transpiler",  "0.7.0"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.1"
 gem "jquery-ui-rails",   "8.0.0"
-gem "js_image_paths",    "0.2.0"
+gem "js_image_paths", git: "https://github.com/shoutsid/js_image_paths.git", branch: "agents-fyi-rails-8"
 gem "js-routes",         "2.3.6"
 
 # Localization
 
 gem "http_accept_language", "2.1.1"
-gem "rails-i18n",           "7.0.10"
+gem "rails-i18n", "~> 8.1.0"
 
 # Map
 gem "leaflet-rails", "1.9.5"
