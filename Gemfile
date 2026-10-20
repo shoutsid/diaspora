@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.1.0"
+gem "rails", "7.2.0"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -146,7 +146,7 @@ gem "active_model_serializers", "0.9.13"
 
 # Tags
 
-gem "acts-as-taggable-on", "10.0.0"
+gem "acts-as-taggable-on", "~> 13.0.0"
 
 # URIs and HTTP
 
@@ -262,7 +262,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "6.1.5"
+  gem "rspec-rails", "~> 6.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "4.0.1", require: false
@@ -279,3 +279,4 @@ end
 gem "rake", ">= 12.2"
 gem "logger", "~> 1.4"
 gem "connection_pool", "~> 2.5"
+gem "sass", "~> 3.7"

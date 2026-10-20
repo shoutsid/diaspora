@@ -9,7 +9,7 @@ module ErrorMessagesHelper
   def error_messages_for(*objects)
     options = objects.extract_options!
     options[:message] ||= I18n.t('error_messages.helper.correct_the_following_errors_and_try_again')
-    messages = objects.compact.map { |o| o.errors.full_messages }.flatten
+    messages = objects.compact.select { |o| o.respond_to?(:errors) }.map { |o| o.errors.full_messages }.flatten
     unless messages.empty?
       content_tag(:div, class: "text-danger") do
         list_items = messages.map { |msg| content_tag(:li, msg) }

@@ -47,8 +47,8 @@ class User < ApplicationRecord
   validates_associated :person
   validate :no_person_with_same_username
 
-  serialize :hidden_shareables, Hash
-  serialize :otp_backup_codes, Array
+  serialize :hidden_shareables, type: Hash
+  serialize :otp_backup_codes, type: Array
 
   has_one :person, inverse_of: :owner, foreign_key: :owner_id
   has_one :profile, through: :person
