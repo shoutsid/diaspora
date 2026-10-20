@@ -568,3 +568,8 @@
 
 [development.mail.sendmail]
 #location = "/opt/bin/sendmail"
+
+[test]
+# The test namespace. `config/defaults.yml` carries the values; the section exists because the
+# loader treats a present diaspora.toml as the set of namespaces, and without it the test
+# database stage aborts with "Namespace test not found".
