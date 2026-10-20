@@ -79,9 +79,9 @@ gem "sprockets-rails",        "3.5.2"
 group :mysql, optional: true do
   gem "mysql2", "0.5.7"
 end
-group :postgresql, optional: true do
-  gem "pg",     "1.6.3"
-end
+# The postgres driver is not optional for this walk: the pin's resolve drops an optional
+# group, and the suite then cannot load the adapter.
+gem "pg", "1.6.3"
 
 gem "activerecord-import", "2.2.0"
 
