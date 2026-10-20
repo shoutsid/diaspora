@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "6.1.7.10"
+gem "rails", "~> 7.0.0"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -16,7 +16,7 @@ gem "concurrent-ruby", "1.3.4"
 
 # Legacy Rails features, remove me!
 # responders (class level)
-gem "responders", "3.1.1"
+gem "responders", "~> 3.1"
 
 # Appserver
 
@@ -36,7 +36,7 @@ gem "yajl-ruby",   "1.4.3"
 
 # Authentication
 
-gem "devise", "4.9.4"
+gem "devise", "~> 4.0"
 gem "devise_lastseenable", "0.0.6"
 gem "devise-two-factor", "4.1.0"
 gem "rqrcode", "3.2.0"
@@ -275,3 +275,5 @@ group :development, :test do
   # For `assigns` in controller specs
   gem "rails-controller-testing", "1.0.5"
 end
+gem "rake", ">= 12.2"
+gem "logger", "~> 1.4"

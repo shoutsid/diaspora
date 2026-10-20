@@ -72,7 +72,7 @@ describe NotificationsController, type: :controller do
       Timecop.travel(6.seconds.ago) do
         @notification.touch
       end
-      get :index, format: :json
+      get :index, params: { format: :json }
       expect(response).to be_successful
       response_json = JSON.parse(response.body)
       note_html = Nokogiri::HTML(response_json["notification_list"][0]["also_commented"]["note_html"])
@@ -94,7 +94,7 @@ describe NotificationsController, type: :controller do
     end
 
     it "succeeds on mobile" do
-      get :index, format: :mobile
+      get :index, params: { format: :mobile }
       expect(response).to be_successful
     end
 
@@ -128,7 +128,7 @@ describe NotificationsController, type: :controller do
 
       it "succeeds on mobile" do
         eve.share_with(alice.person, eve.aspects.first)
-        get :index, format: :mobile
+        get :index, params: { format: :mobile }
         expect(response).to be_successful
       end
     end
@@ -162,7 +162,7 @@ describe NotificationsController, type: :controller do
       end
 
       it "succeeds on mobile" do
-        get :index, format: :mobile
+        get :index, params: { format: :mobile }
         expect(response).to be_successful
       end
     end
@@ -216,7 +216,7 @@ describe NotificationsController, type: :controller do
 
     it "should return a dummy value in the json version" do
       FactoryBot.create(:notification, recipient: alice, target: post)
-      get :read_all, format: :json
+      get :read_all, params: { format: :json }
       expect(response).not_to be_redirect
     end
   end

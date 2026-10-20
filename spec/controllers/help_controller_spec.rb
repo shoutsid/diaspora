@@ -8,7 +8,7 @@ describe HelpController, type: :controller do
     end
 
     it "succeeds on mobile" do
-      get :faq, format: :mobile
+      get :faq, params: { format: :mobile }
       expect(response).to be_successful
     end
   end

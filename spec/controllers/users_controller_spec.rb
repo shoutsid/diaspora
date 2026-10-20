@@ -357,7 +357,7 @@ describe UsersController, :type => :controller do
     end
 
     it 'does not fail miserably on mobile' do
-      get :getting_started, format: :mobile
+      get :getting_started, params: { format: :mobile }
       expect(response).to be_successful
     end
 

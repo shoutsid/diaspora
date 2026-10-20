@@ -19,7 +19,7 @@ describe HomeController, type: :controller do
     end
 
     it "redirects to the sign in page for :mobile" do
-      get :show, format: :mobile
+      get :show, params: { format: :mobile }
       expect(response).to redirect_to(user_session_path)
     end
 
@@ -37,7 +37,7 @@ describe HomeController, type: :controller do
     end
 
     it "succeeds on mobile" do
-      get :podmin, format: :mobile
+      get :podmin, params: { format: :mobile }
       expect(response).to be_successful
     end
   end

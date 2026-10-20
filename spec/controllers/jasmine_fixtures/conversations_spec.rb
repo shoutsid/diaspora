@@ -39,7 +39,7 @@ describe ConversationsController, :type => :controller do
 
     it "generates a jasmine fixture", fixture: true do
       session[:mobile_view] = true
-      get :new, format: :mobile
+      get :new, params: { format: :mobile }
       save_fixture(html_for("body"), "conversations_new_mobile")
     end
   end

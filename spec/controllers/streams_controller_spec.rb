@@ -26,7 +26,7 @@ describe StreamsController, :type => :controller do
       end
 
       it "succeeds on mobile" do
-        get :multi, format: :mobile
+        get :multi, params: { format: :mobile }
         expect(response).to be_successful
       end
 
@@ -69,7 +69,7 @@ describe StreamsController, :type => :controller do
       end
 
       it "succeeds on mobile" do
-        get :public, format: :mobile
+        get :public, params: { format: :mobile }
         expect(response).to be_successful
       end
     end
