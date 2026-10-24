@@ -110,7 +110,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
           post api_openid_connect_authorizations_new_path, params: {client_id: client.client_id,
                redirect_uri: "http://localhost:3000/", response_type: "id_token",
                scope: "random", nonce: SecureRandom.hex(16), state: SecureRandom.hex(16)}
-          expect(response.body).to match("error=invalid_scope")
+          expect(response.location).to match("error=invalid_scope")
         end
       end
 
@@ -128,7 +128,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
           post api_openid_connect_authorizations_new_path, params: {client_id: client.client_id,
                redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"}
-          expect(response.body).to include("User must already be authorized when `prompt` is `none`")
+          expect(response.location).to include("User must already be authorized when `prompt` is `none`")
         end
       end
 
@@ -141,7 +141,7 @@ describe Api::OpenidConnect::AuthorizationsController, type: :request do
           post api_openid_connect_authorizations_new_path, params: {client_id: client.client_id,
                redirect_uri: "http://localhost:3000/",
                response_type: "id_token", scope: "openid", state: 1234, display: "page", prompt: "none"}
-          expect(response.body).to include("User must already be logged in when `prompt` is `none`")
+          expect(response.location).to include("User must already be logged in when `prompt` is `none`")
         end
       end
 
