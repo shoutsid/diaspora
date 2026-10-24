@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.1.6"
+gem "rails", "7.2.4"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -145,7 +145,7 @@ gem "active_model_serializers", "0.9.13"
 
 # Tags
 
-gem "acts-as-taggable-on", "10.0.0"
+gem "acts-as-taggable-on", "~> 13.0.0"
 
 # URIs and HTTP
 
@@ -187,7 +187,7 @@ gem "rubyzip", "2.4.1", require: "zip"
 # https://github.com/gitlabhq/gitlabhq/issues/3826
 # https://github.com/gitlabhq/gitlabhq/pull/3852
 # https://github.com/discourse/discourse/pull/238
-gem "minitest", "6.0.3"
+gem "minitest", "~> 5.25.0"
 
 gem "versionist", "2.0.1"
 
@@ -261,7 +261,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "6.1.5"
+  gem "rspec-rails", "~> 6.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "4.0.1", require: false
