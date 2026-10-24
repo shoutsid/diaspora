@@ -26,7 +26,7 @@ describe Admin::PodsController, type: :controller do
     it "returns the json data" do
       3.times { FactoryBot.create(:pod) }
 
-      get :index, format: :json
+      get :index, params: { format: :json }
 
       expect(response.body).to eql(PodPresenter.as_collection(Pod.all).to_json)
     end
