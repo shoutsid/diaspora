@@ -8,7 +8,7 @@ describe TermsController, type: :controller do
     end
 
     it "succeeds on mobile" do
-      get :index, format: :mobile
+      get :index, params: { format: :mobile }
       expect(response).to be_successful
     end
   end

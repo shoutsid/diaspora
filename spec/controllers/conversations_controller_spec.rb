@@ -81,7 +81,7 @@ describe ConversationsController, :type => :controller do
     end
 
     it "succeeds with json" do
-      get :index, format: :json
+      get :index, params: { format: :json }
       expect(response).to be_successful
       json = JSON.parse(response.body)
       expect(json.first["conversation"]).to be_present
