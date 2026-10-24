@@ -9,7 +9,7 @@ module Diaspora
 
         validates :author_signature, presence: true
 
-        serialize :additional_data, Hash
+        serialize :additional_data, type: Hash
 
         def order
           signature_order.order.split

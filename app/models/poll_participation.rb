@@ -12,7 +12,8 @@ class PollParticipation < ApplicationRecord
 
   has_one :signature, class_name: "PollParticipationSignature", dependent: :delete
 
-  alias_attribute :parent, :poll
+  alias_method :parent, :poll
+  alias_method :parent=, :poll=
   def parent
     poll
   end

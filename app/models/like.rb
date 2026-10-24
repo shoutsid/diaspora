@@ -14,7 +14,8 @@ class Like < ApplicationRecord
 
   has_one :signature, class_name: "LikeSignature", dependent: :delete
 
-  alias_attribute :parent, :target
+  alias_method :parent, :target
+  alias_method :parent=, :target=
   def parent
     target
   end

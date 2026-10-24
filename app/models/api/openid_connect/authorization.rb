@@ -10,7 +10,7 @@ module Api
 
       validates :user, uniqueness: {scope: :o_auth_application}
       validate :validate_scope_names
-      serialize :scopes, JSON
+      serialize :scopes, coder: JSON
 
       has_many :o_auth_access_tokens, dependent: :destroy
 
