@@ -4,7 +4,7 @@ class Pod < ApplicationRecord
   # a pod is active if it is online or was online less than 14 days ago
   ACTIVE_DAYS = 14.days
 
-  enum status: %i(
+  enum :status, %i(
     unchecked
     no_errors
     dns_failed

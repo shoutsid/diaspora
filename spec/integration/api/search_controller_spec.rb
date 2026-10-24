@@ -450,7 +450,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/posts",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, "param is missing or the value is empty: tag")
+      confirm_api_error(response, 422, "param is missing or the value is empty or invalid: tag")
     end
 
     it "fails with bad credentials" do
@@ -533,7 +533,7 @@ describe Api::V1::SearchController do
         "/api/v1/search/tags",
         params: {access_token: access_token}
       )
-      confirm_api_error(response, 422, "param is missing or the value is empty: query")
+      confirm_api_error(response, 422, "param is missing or the value is empty or invalid: query")
     end
 
     it "fails with bad credentials" do
