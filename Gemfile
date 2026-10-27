@@ -278,3 +278,4 @@ end
 gem "rake", ">= 12.2"
 gem "logger", "~> 1.4"
 gem "connection_pool", "~> 2.5"
+gem "attr_encrypted", "4.2.0"
