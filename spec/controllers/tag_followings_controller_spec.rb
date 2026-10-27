@@ -9,7 +9,7 @@ describe TagFollowingsController, type: :controller do
       end
 
       it "redirects mobile requests" do
-        get :manage, format: :mobile
+        get :manage, params: { format: :mobile }
         expect(response).to redirect_to new_user_session_path(format: :mobile)
       end
     end
@@ -24,7 +24,7 @@ describe TagFollowingsController, type: :controller do
       end
 
       it "does not redirect mobile requests" do
-        get :manage, format: :mobile
+        get :manage, params: { format: :mobile }
         expect(response).not_to be_redirect
       end
     end
@@ -84,7 +84,7 @@ describe TagFollowingsController, type: :controller do
     end
 
     it "Gets Tags" do
-      get :index, format: :json
+      get :index, params: { format: :json }
       expect(response.status).to eq(200)
       tag_followings = JSON.parse(response.body)
       expect(tag_followings.length).to eq(2)

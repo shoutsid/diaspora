@@ -13,7 +13,7 @@ describe ContactsController, :type => :controller do
   describe '#index' do
     context 'format mobile' do
       it "succeeds" do
-        get :index, format: :mobile
+        get :index, params: { format: :mobile }
         expect(response).to be_successful
       end
     end

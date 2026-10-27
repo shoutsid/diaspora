@@ -35,7 +35,7 @@ class PostsController < ApplicationController
   def oembed
     post_id = OEmbedPresenter.id_from_url(params.delete(:url))
     post = post_service.find!(post_id)
-    oembed = params.slice(:format, :maxheight, :minheight)
+    oembed = params.permit(:format, :maxheight, :minheight).to_h
     render json: OEmbedPresenter.new(post, oembed)
   rescue
     head :not_found

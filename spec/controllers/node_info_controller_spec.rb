@@ -3,7 +3,7 @@
 describe NodeInfoController do
   describe "#jrd" do
     it "responds to JSON" do
-      get :jrd, format: :json
+      get :jrd, params: { format: :json }
 
       expect(response).to be_successful
     end
@@ -11,7 +11,7 @@ describe NodeInfoController do
     it "returns a JRD" do
       expect(NodeInfo).to receive(:jrd).with(include("%{version}")).and_call_original
 
-      get :jrd, format: :json
+      get :jrd, params: { format: :json }
 
       jrd = JSON.parse(response.body)
       expect(jrd).to include "links" => [{
@@ -63,17 +63,17 @@ describe NodeInfoController do
 
   describe "#statistics" do
     it "returns a 406 for json format" do
-      get :statistics, format: "json"
+      get :statistics, params: { format: "json" }
       expect(response.code).to eq("406")
     end
 
     it "responds to html" do
-      get :statistics, format: "html"
+      get :statistics, params: { format: "html" }
       expect(response.code).to eq("200")
     end
 
     it "responds to mobile" do
-      get :statistics, format: "mobile"
+      get :statistics, params: { format: "mobile" }
       expect(response.code).to eq("200")
     end
   end
