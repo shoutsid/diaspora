@@ -1,6 +1,7 @@
 GIT
   remote: https://github.com/shoutsid/js_image_paths.git
   revision: 51de473a793710fc19a84414d44dd185944f2e08
+  ref: 51de473a793710fc19a84414d44dd185944f2e08
   specs:
     js_image_paths (0.2.0)
       rails (>= 4.0, < 9.0)
