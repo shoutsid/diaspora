@@ -21,8 +21,10 @@ class Comment < ApplicationRecord
   before_create :build_tags
 
   belongs_to :commentable, :touch => true, :polymorphic => true
-  alias_attribute :post, :commentable
-  alias_attribute :parent, :commentable
+  alias_method :post, :commentable
+  alias_method :post=, :commentable=
+  alias_method :parent, :commentable
+  alias_method :parent=, :commentable=
   def parent
     commentable
   end

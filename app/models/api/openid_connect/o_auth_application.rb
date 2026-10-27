@@ -36,7 +36,7 @@ module Api
       validates :client_name, uniqueness: {scope: :redirect_uris}
 
       %i(redirect_uris response_types grant_types contacts jwks).each do |serializable|
-        serialize serializable, JSON
+        serialize serializable, coder: JSON
       end
 
       before_validation :setup, on: :create
