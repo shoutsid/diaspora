@@ -100,7 +100,7 @@ gem "babel-transpiler",  "0.7.0"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.1"
 gem "jquery-ui-rails",   "8.0.0"
-gem "js_image_paths",    "0.2.0"
+gem "js_image_paths",    github: "shoutsid/js_image_paths"
 gem "js-routes",         "2.3.6"
 
 # Localization
