@@ -900,6 +900,7 @@ DEPENDENCIES
   rubocop-rails (= 2.34.3)
   ruby-oembed (= 0.18.1)
   rubyzip (= 2.4.1)
+  sass (~> 3.7)
   sassc-rails (= 2.1.2)
   secure_headers (= 7.2.0)
   shoulda-matchers (= 6.5.0)
