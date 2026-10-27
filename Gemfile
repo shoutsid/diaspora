@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.0.10"
+gem "rails", "7.1.6"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -38,7 +38,7 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "~> 4.0"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "4.1.0"
+gem "devise-two-factor", "~> 6.3.1"
 gem "rqrcode", "3.2.0"
 
 # Captcha
@@ -245,7 +245,7 @@ group :test do
 
   gem "capybara",         "3.40.0"
   gem "cuprite",          "0.17"
-  gem "database_cleaner-active_record", "2.2.2"
+  gem "database_cleaner-active_record", "~> 2.1"
 
   gem "cucumber-api-steps", "0.14", require: false
 
@@ -261,7 +261,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "6.1.5"
+  gem "rspec-rails", "~> 6.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "4.0.1", require: false
@@ -277,3 +277,4 @@ group :development, :test do
 end
 gem "rake", ">= 12.2"
 gem "logger", "~> 1.4"
+gem "connection_pool", "~> 2.5"
