@@ -30,7 +30,7 @@ describe TagsController, :type => :controller do
     end
 
     it 'does not allow json requestors to party' do
-      get :index, format: :json
+      get :index, params: { format: :json }
       expect(response.status).to eq(422)
     end
   end
