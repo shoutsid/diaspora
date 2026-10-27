@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "8.0.5.1"
+gem "rails", "8.1.4"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
