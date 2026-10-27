@@ -2,7 +2,7 @@
 
 source "https://rubygems.org"
 
-gem "rails", "7.0.10"
+gem "rails", "7.1.6"
 
 # needed for actionmailer, can be removed when upgrading to rails 7
 gem "net-imap", require: false
@@ -38,7 +38,7 @@ gem "yajl-ruby",   "1.4.3"
 
 gem "devise", "~> 4.0"
 gem "devise_lastseenable", "0.0.6"
-gem "devise-two-factor", "4.1.0"
+gem "devise-two-factor", "~> 6.3.1"
 gem "rqrcode", "3.2.0"
 
 # Captcha
@@ -100,7 +100,7 @@ gem "babel-transpiler",  "0.7.0"
 gem "handlebars_assets", "0.23.9"
 gem "jquery-rails",      "4.6.1"
 gem "jquery-ui-rails",   "8.0.0"
-gem "js_image_paths",    github: "shoutsid/js_image_paths"
+gem "js_image_paths",    git: "https://github.com/shoutsid/js_image_paths.git", ref: "51de473a793710fc19a84414d44dd185944f2e08"
 gem "js-routes",         "2.3.6"
 
 # Localization
@@ -245,7 +245,7 @@ group :test do
 
   gem "capybara",         "3.40.0"
   gem "cuprite",          "0.17"
-  gem "database_cleaner-active_record", "2.2.2"
+  gem "database_cleaner-active_record", "~> 2.1"
 
   gem "cucumber-api-steps", "0.14", require: false
 
@@ -261,7 +261,7 @@ end
 
 group :development, :test do
   # RSpec (unit tests, some integration tests)
-  gem "rspec-rails", "6.1.5"
+  gem "rspec-rails", "~> 6.1"
 
   # Cucumber (integration tests)
   gem "cucumber-rails", "4.0.1", require: false
@@ -277,3 +277,5 @@ group :development, :test do
 end
 gem "rake", ">= 12.2"
 gem "logger", "~> 1.4"
+gem "connection_pool", "~> 2.5"
+gem "attr_encrypted", "4.2.0"
